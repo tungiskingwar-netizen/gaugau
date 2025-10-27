@@ -1,0 +1,516 @@
+/* --- Variables & Base Reset --- */
+:root {
+    --primary-color: #A31F34; /* Đỏ đô/Màu rượu vang */
+    --secondary-color: #E2B24C; /* Vàng đồng/Màu nhấn */
+    --text-color: #333;
+    --light-text: #fff;
+    --bg-light: #F8F8F8; /* Nền nhẹ nhàng */
+    --bg-dark: #2c2c2c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.hero {
+  background: url('https://images.unsplash.com/photo-1541544741938-0af808871cc0') center/cover no-repeat;
+  color: white;
+  padding: 120px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-weight: 700;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-text);
+}
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s, background-color 0.3s;
+}
+ul {
+    list-style: none;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.section {
+    padding: 80px 0;
+}
+.section-title {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 5px;
+}
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+}
+.light-text {
+    color: var(--light-text);
+}
+.section-title-left { /* Để căn lề trái cho tiêu đề */
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* --- 1. Header & Navigation --- */
+.header {
+    background: var(--light-text);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.nav ul {
+    display: flex;
+    align-items: center;
+}
+.nav ul li {
+    padding: 0 15px;
+    position: relative;
+}
+.nav ul li a {
+    color: var(--text-color);
+    padding: 5px 0;
+    position: relative;
+}
+.nav ul li a:hover, .nav ul li a.active {
+    color: var(--primary-color);
+}
+/* Hiệu ứng gạch chân tinh tế */
+.nav ul li a:hover::after, .nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+/* CTA Button */
+.btn-cta a {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.btn-cta a:hover {
+    background-color: #8c1a2d;
+    transform: translateY(-1px);
+}
+
+/* Dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background-color: var(--light-text);
+    z-index: 1;
+    top: 100%;
+    border-top: 3px solid var(--primary-color);
+}
+.dropdown-content a {
+    padding: 10px 15px;
+    display: block;
+    color: var(--text-color);
+}
+.dropdown-content a:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* --- Page Hero --- */
+.page-hero {
+    background-color: var(--bg-light);
+    padding: 40px 0;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+.page-hero h1 {
+    color: var(--primary-color);
+    font-size: 2em;
+}
+
+/* --- NEW: About Us with Image (giới thiệu có ảnh) --- */
+.about-us-with-image {
+    background-color: var(--light-text);
+}
+.image-text-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Ảnh 1 phần, text 1.5 phần */
+    gap: 50px;
+    align-items: center;
+}
+.image-wrapper {
+    position: relative;
+    padding: 10px; /* Tạo khung viền giả */
+    border: 1px solid #eee;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+.about-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    object-fit: cover;
+}
+.text-content p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+
+/* --- About Mission (Sứ mệnh) --- */
+.about-mission {
+    background-color: var(--bg-light); /* Nền hơi xám cho phần sứ mệnh */
+}
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+.intro-text {
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Mission Points Grid (Chi tiết hơn) */
+.mission-points-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Tạm thời để 1 cột trên desktop */
+    gap: 20px;
+}
+.mission-item {
+    background-color: var(--light-text);
+    padding: 20px;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+.mission-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.mission-item i {
+    color: var(--secondary-color);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* --- 3. Statistics/Counter Section --- */
+.stats-counter {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    padding: 60px 0;
+}
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.stat-item {
+    padding: 20px;
+    flex: 1 1 200px; /* Linh hoạt, chiếm ít nhất 200px */
+}
+.counter {
+    display: block;
+    font-size: 3.5em;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+.stat-item p {
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+/* --- NEW: Testimonials (Đánh giá khách hàng) --- */
+.testimonials {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: var(--light-text);
+    padding: 100px 0; /* Tăng padding để có không gian */
+    overflow: hidden; /* Quan trọng cho carousel */
+}
+.testimonial-container h2{
+    font-style: italic;
+    color: #e1cea5;
+}
+.testimonials .overlay { /* Lớp phủ đen */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Đen trong suốt */
+    z-index: 1;
+}
+.testimonial-container {
+    position: relative;
+    z-index: 2; /* Đảm bảo nội dung nằm trên lớp phủ */
+    text-align: center;
+}
+.testimonial-carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    height: 250px; /* Chiều cao cố định cho carousel */
+    align-items: center;
+}
+.testimonial-item {
+    min-width: 100%; /* Mỗi item chiếm toàn bộ chiều rộng */
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: rgba(114, 77, 77, 0.1); /* Hơi trong suốt */
+    border-radius: 8px;
+    transform: translateX(0);
+    transition: transform 0.5s ease-in-out;
+    position: absolute; /* Quan trọng cho việc xếp chồng */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Căn giữa */
+    opacity: 0;
+    visibility: hidden;
+    height: auto;
+    max-width: 700px; /* Giới hạn chiều rộng đánh giá */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+.testimonial-item.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) translateX(0);
+}
+
+.testimonial-item .stars {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+.testimonial-item .quote {
+    font-size: 1.4em;
+    font-style: italic;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.testimonial-item .author {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: var(--secondary-color);
+}
+.carousel-nav {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.carousel-nav button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: var(--light-text);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.carousel-nav button:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* --- 4. Team Section --- */
+.team-section {
+    background-color: var(--bg-light);
+}
+.team-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+}
+.team-member {
+    flex: 1 1 300px;
+    background-color: var(--light-text);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.member-photo {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+.team-member h3 {
+    color: var(--primary-color);
+}
+.position {
+    font-style: italic;
+    color: #666;
+}
+.experience {
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-top: 5px;
+}
+
+/* --- 5. Footer --- */
+.footer {
+    background-color: var(--bg-dark);
+    color: #ccc;
+    padding-top: 50px;
+}
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+}
+.footer-col {
+    flex: 1 1 250px;
+    margin-bottom: 20px;
+}
+.footer-heading {
+    color: var(--light-text);
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    position: relative;
+}
+.footer-heading::after { /* Gạch chân tiêu đề footer */
+    content: '';
+    display: block;
+    width: 50px;
+    height: 2px;
+    background-color: var(--secondary-color);
+    margin-top: 5px;
+}
+.footer-col ul a {
+    color: #ccc;
+    display: block;
+    padding: 5px 0;
+}
+.footer-col ul a:hover {
+    color: var(--secondary-color);
+}
+.copyright {
+    background-color: #1e1e1e;
+    color: #888;
+    padding: 15px 0;
+    font-size: 0.9em;
+    text-align: center;
+}
+/* General reset/setup */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Section Styling */
+.team-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-weight: 300;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* General reset/setup */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Section Styling */
+.team-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-weight: 300;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+/* General reset/setup */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f8f8; /* Màu nền nhẹ cho toàn trang */
+}
+
+/* Section Styling */
+.team-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-weight: 300;
+    margin-bottom: 50px;
+    color: #333;
+}
